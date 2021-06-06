@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "coverage": "ng test --code-coverage"
+    "coverage": "ng test --code-coverage",
+    "heroku-postbuild": "ng build --prod",
+    "build-prod": "ng build --prod"
   },
   "engines": {
     "node": "~14.15.0",

@@ -1,24 +1,17 @@
-//Install express server
 const PATH_PROJECT = '/dist/test-front';
-
 const express = require('express');
+const http = require('http');
 const path = require('path');
 
 const app = express();
+const server = http.createServer(app);
 
-// Serve only the static files form the dist directory
-// app.use(express.static(__dirname + PATH_PROJECT));
-app.use(express.static(__dirname + '/dist/test-front'));
+app.use(express.static(__dirname + PATH_PROJECT));
 
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, PATH_PROJECT, index.html)));
 
-// app.get('/', (req, res) =>
-//   res.sendFile(path.join(__dirname, PATH_PROJECT, index.html)));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/test-front/index.html'));
-});
-
-app.listen(process.env.PORT || 8080, () => {
+server.listen(process.env.PORT || 8081, () => {
   if (!process.env.PORT) {
-    console.log('Running with Express... http://localhost:8080/');
+    console.log('Running with Express... http://localhost:8081/');
   }
 });
