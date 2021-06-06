@@ -9,10 +9,6 @@ const app = express();
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + PATH_PROJECT));
 
-// app.get('/*', (req, res) =>
-//   res.sendFile('index.html', {root: 'dist/test-front/'}),
-// );
-
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, PATH_PROJECT, index.html)));
 
